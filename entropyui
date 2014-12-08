@@ -1,0 +1,19 @@
+library(shiny)
+shinyUI(
+  pageWithSidebar(
+    headerPanel("Data Science: Character String Entropy"),
+    sidebarPanel(
+    h3('Entropy Calculator'),
+    textInput('text', 'Enter a text: ', value = ''),
+    submitButton('Submit')
+    ),
+    
+    mainPanel(
+    #h4('Text Entropy'),
+    h4('You typed: '),
+    verbatimTextOutput('text'),
+    h3('Entropy of the Text: '),
+    verbatimTextOutput('ent')
+    )
+  )
+)
