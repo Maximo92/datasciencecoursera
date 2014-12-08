@@ -1,0 +1,12 @@
+library(shiny)
+
+##the app takes a string as user input and calculates its entropy
+
+entropy = function(s){freq = prop.table(table(strsplit(s, '')[1]))
+ -sum(freq * log(freq, base = 2))}
+
+shinyServer(function(input, output){
+  output$text <- renderPrint({input$text})
+  output$ent <- renderPrint({entropy(input$text)})
+  }
+)
